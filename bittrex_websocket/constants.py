@@ -23,27 +23,33 @@ class EventTypes(Constant):
 
 class BittrexParameters(Constant):
     # Connection parameters
-    URL = 'https://socket.bittrex.com/signalr'
-    HUB = 'c2'
+    URL = 'https://socket-v3.bittrex.com/signalr'
+    HUB = 'c3'
     # Callbacks
-    MARKET_DELTA = 'uE'
-    SUMMARY_DELTA = 'uS'
-    SUMMARY_DELTA_LITE = 'uL'
-    BALANCE_DELTA = 'uB'
-    ORDER_DELTA = 'uO'
+    # MARKET_DELTA = 'uE'
+    # SUMMARY_DELTA = 'uS'
+    # SUMMARY_DELTA_LITE = 'uL'
+    # BALANCE_DELTA = 'uB'
+    # ORDER_DELTA = 'uO'
     # Retry
     CONNECTION_TIMEOUT = 10
     RETRY_TIMEOUT = 5
     MAX_RETRIES = None
+    TRADES = 'trade'
+    HEARTBEAT = 'heartbeat'
 
 
 class BittrexMethods(Constant):
     # Public methods
-    SUBSCRIBE_TO_EXCHANGE_DELTAS = 'SubscribeToExchangeDeltas'
-    SUBSCRIBE_TO_SUMMARY_DELTAS = 'SubscribeToSummaryDeltas'
-    SUBSCRIBE_TO_SUMMARY_LITE_DELTAS = 'SubscribeToSummaryLiteDeltas'
+    # SUBSCRIBE_TO_EXCHANGE_DELTAS = 'SubscribeToExchangeDeltas'
+    # SUBSCRIBE_TO_SUMMARY_DELTAS = 'SubscribeToSummaryDeltas'
+    # SUBSCRIBE_TO_SUMMARY_LITE_DELTAS = 'SubscribeToSummaryLiteDeltas'
+    # TRADES = 'trade'
+    # HEARTBEAT = 'heartbeat'
+    SUBSCRIBE = 'Subscribe'
     QUERY_SUMMARY_STATE = 'QuerySummaryState'
     QUERY_EXCHANGE_STATE = 'QueryExchangeState'
+
     GET_AUTH_CONTENT = 'GetAuthContext'
     AUTHENTICATE = 'Authenticate'
 

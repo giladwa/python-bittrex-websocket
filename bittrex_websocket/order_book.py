@@ -51,17 +51,18 @@ class OrderBook(BittrexSocket):
         self.subscribe_to_exchange_deltas(ticker)
 
     def _handle_subscribe_for_ticker(self, invoke, payload):
-        if invoke in [BittrexMethods.SUBSCRIBE_TO_EXCHANGE_DELTAS, BittrexMethods.QUERY_EXCHANGE_STATE]:
-            for ticker in payload[0]:
-                self.connection.corehub.server.invoke(invoke, ticker)
-                self.invokes.append({'invoke': invoke, 'ticker': ticker})
-                logger.info('Successfully subscribed to [{}] for [{}].'.format(invoke, ticker))
+        if invoke in [BittrexMethods.SUBSCRIBE]:
+            ticker = payload[0]
+            self.connection.corehub.server.invoke(invoke, ticker)
+            self.invokes.append({'invoke': invoke, 'ticker': ticker})
+            logger.info('Successfully subscribed to [{}] for {}.'.format(invoke, ticker))
             return True
         elif invoke is None:
             return True
         return False
 
     def on_public(self, msg):
+        print("order book on_public")
         if msg['invoke_type'] == BittrexMethods.SUBSCRIBE_TO_EXCHANGE_DELTAS:
             ticker = msg['M']
             if ticker not in self.order_nounces:

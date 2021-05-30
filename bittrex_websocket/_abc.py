@@ -13,6 +13,10 @@ class WebSocket(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
+    def subscribe(self, channels):
+        pass
+
+    @abstractmethod
     def subscribe_to_exchange_deltas(self, tickers):
         """
         Allows the caller to receive real-time updates to the state of a SINGLE market.
