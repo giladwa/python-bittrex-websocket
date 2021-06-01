@@ -27,10 +27,6 @@ from events import Events
 from ._exceptions import *
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-for handler in logger.handlers:
-    formatter = logging.Formatter('%(asctime)s %(levelname)s %(filename)s(%(lineno)d) %(message)s')
-    handler.setFormatter(formatter)
 
 
 class BittrexSocket(WebSocket):
