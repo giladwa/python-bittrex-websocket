@@ -300,7 +300,7 @@ class BittrexSocket(WebSocket):
                 msg['invoke_type'] = BittrexMethods.SUBSCRIBE
         else:
             msg['invoke_type'] = BittrexMethods.SUBSCRIBE
-        print("Got message: %s" % msg)
+        # print("Got message: %s" % msg)
         self._on_public_callback.on_change(msg)
 
     def _on_private(self, args):
